@@ -18,17 +18,17 @@ public class Table : Container
             return;
         }
 
-        var currentCount = item.GetCount();
+        var currentCount = foundItem.GetCount();
 
         currentCount -= amount;
         
         if (currentCount <= 0)
         {
-            RemoveItem(item);
+            RemoveItem(foundItem);
         }
         else
         {
-            item.SetCount(currentCount);
+            foundItem.SetCount(currentCount);
         }
         
         Console.WriteLine($"You took the item [{foundItem.GetName()}] in the amount [{amount}] from the table");
@@ -40,8 +40,8 @@ public class Table : Container
 
         if (foundItem == null)
         {
-            item.SetCount(amount);
-            AddItem(item);
+            var newItem = Activator.CreateInstance(item.GetType(), item.GetName(), amount) as Item;
+            AddItem(newItem);
             
             Console.WriteLine($"Item [{item.GetName()}] placed on table. Total: [{amount}]");
             return;

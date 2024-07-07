@@ -20,19 +20,19 @@ public class Inventory : Container
             return;
         }
 
-        var currentCount = item.GetCount();
+        var currentCount = foundItem.GetCount();
         currentCount -= amount;
 
         if (currentCount <= 0)
         {
-            RemoveItem(item);
+            RemoveItem(foundItem);
         }
         else
         {
-            item.SetCount(currentCount);
+            foundItem.SetCount(currentCount);
         }
         
-        Console.WriteLine($"You took the item [{item.GetName()}] in the amount {amount} from the inventory");
+        Console.WriteLine($"You took the item [{foundItem.GetName()}] in the amount {amount} from the inventory");
     }
 
     public override void PlaceItem(Item item, int amount = 1)

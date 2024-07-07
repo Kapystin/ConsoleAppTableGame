@@ -137,7 +137,19 @@ namespace ItemManagement
             
                 if (int.TryParse(userInputLine, out var _amount))
                 {
-                    amount = _amount;
+                    if (_amount > currentCount)
+                    {
+                        amount = currentCount;
+                    }
+                    else if (_amount <= 0)
+                    {
+                        amount = 1;
+                        Console.WriteLine($"You enter invalid value [{_amount}]. By default you will take [{amount}] {item.GetName()}");
+                    }
+                    else
+                    {
+                        amount = _amount;
+                    }
                 }
                 else
                 {
