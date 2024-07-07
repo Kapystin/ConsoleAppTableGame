@@ -47,4 +47,9 @@ public abstract class Container
     {
         return _items;
     }
+
+    ~Container()
+    {
+        _items = null;
+    }
 }

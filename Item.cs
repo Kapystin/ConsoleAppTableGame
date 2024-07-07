@@ -14,6 +14,11 @@ public abstract class Item
     {
         _name = name;
         _count = count;
+        
+        if (count <= 0)
+        {
+            _count = 1;
+        }
     }
     
     public string GetName()

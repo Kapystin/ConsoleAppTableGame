@@ -13,7 +13,8 @@ namespace ItemManagement
             {
                 new Amulet("Amulet"), 
                 new Book("Book"), 
-                new Coins("Coins", 33)
+                new Coins("Coins", 33),
+                new Card("Card", 2)
             };
             
             var table = new Table();
